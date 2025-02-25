@@ -1,0 +1,21 @@
+.color {
+  color: #800000;
+}
+
+.head-color {
+  color: #123C69;
+}
+
+.bg-color {
+  background-color: #e3e3e3;
+}
+
+.btn {
+  background-color: #123C69;
+  --bs-btn-hover-bg: #5cb85c;
+}
+
+.text-col {
+  color: #123C69;
+}
+

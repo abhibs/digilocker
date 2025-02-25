@@ -20,7 +20,6 @@
 	}                                              
 
 
-
 	if($request_data['type'] == "Digilocker-Aadhar"){
 		$url = "https://www.truthscreen.com/api/v1.0/eaadhaardigilocker";
 		$body = [
