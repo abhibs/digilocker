@@ -87,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </ul>
             <div class="tab-content">
                 <div class="tab-pane active" role="tabpanel" id="tab-1">
-                    <p>Abhi</p>
+                    <p>Shruti</p>
                 </div>
                 <div class="tab-pane" role="tabpanel" id="tab-2">
                     <p>Shahil</p>
