@@ -39,15 +39,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 
-
-
 <!DOCTYPE html>
 <html data-bs-theme="light" lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Untitled</title>
+    <title>Aadhaar Digilocker</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/Login-Form-Basic-icons.css">
@@ -105,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     Transaction ID</button> -->
 
                                 <form id="form1">
-                                    <button type="button" class="btn btn-primary" onclick="showTransactionId()">Click to display the transaction id</button>
+                                    <button type="button" class="btn btn-primary" onclick="showTransactionId()">Click to display the transaction ID</button>
                                 </form>
                             </div>
                             <div class="col-6">

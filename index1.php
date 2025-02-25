@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
     <form id="form1">
-        <button type="button" onclick="showTransactionId()">Click to display the transaction id</button>
+        <button type="button" onclick="showTransactionId()">Click to display the transaction ID</button>
     </form>
 
 </body>
