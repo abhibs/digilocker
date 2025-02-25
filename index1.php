@@ -49,10 +49,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         async function showTransactionId() {
             try {
                 let requestData = {
-                    type: "Digilocker" 
+                    type: "Digilocker"
                 };
 
-                let response = await fetch('DigiLocker.php', {  
+                let response = await fetch('DigiLocker.php', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if (data && data.ts_trans_id && data.data && data.data.url) {
                     alert("Your Transaction ID: " + data.ts_trans_id);
                     alert("DigiLocker link generated successfully.");
-                    window.open(data.data.url, '_blank'); 
+                    window.open(data.data.url, '_blank');
                 } else {
                     alert("Failed to retrieve transaction details. Check API response.");
                 }
