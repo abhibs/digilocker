@@ -227,6 +227,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             } catch (error) {
                 alert("Error: " + error.message);
+            }
+        }
+
         function shareOnWhatsApp() {
             let mobile = document.getElementById("mobile").value.trim();
             let link = document.getElementById("link").value.trim();
