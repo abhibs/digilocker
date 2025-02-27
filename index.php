@@ -192,7 +192,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Redirect to WhatsApp with the message
                 window.open(whatsappURL, '_blank');
             } else {
-                alert("Please enter both mobile number and link!");
+                alert("Enter both Mobile Number and Link!");
             }
         }
     </script>
