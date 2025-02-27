@@ -109,15 +109,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <div class="col-6">
                                 <div class="card mb-5">
                                     <div class="card-body p-sm-12">
-                                        <h5 class="text-center mb-4 text-col">Enter Transaction ID</h5>
-                                        <form method="post">
+                                        <h5 style="color: #123C69;">Enter Transaction ID</h5>
+                                        <!-- <form method="post">
                                             <div class="mb-3"><input class="form-control" type="text" id="name-2"
                                                     name="name" placeholder="Enter Transaction ID"></div>
                                             <div><button class="btn btn-primary" type="submit">Submit</button></div>
+                                        </form> -->
+                                        <form onsubmit="displayOutput(event)">
+                                            <div class="form-group">
+                                                <input type="text" id="transId" name="transId" required placeholder="Generated Transaction ID" class="form-control" autocomplete="off">
+                                            </div>
+
+                                            <button class="btn btn-success mt-3" type="submit">
+                                                <span style="color:#ffcf40" class="fa fa-save"></span> Submit
+                                            </button>
                                         </form>
+                                        <div id="output" style="margin-top: 20px; white-space: pre-wrap;"></div>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -157,6 +168,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 } else {
                     alert("Failed to retrieve transaction details. Check API response.");
                 }
+            } catch (error) {
+                alert("Error: " + error.message);
+            }
+        }
+
+        async function displayOutput(event) {
+            event.preventDefault();
+
+            let transId = document.getElementById("transId").value;
+
+            if (!transId) {
+                alert("Please enter a valid Transaction ID.");
+                return;
+            }
+
+            let requestData = {
+                type: "Digilocker-Aadhar",
+                ts_trans_id: transId
+            };
+
+            try {
+                let response = await fetch('DigiLocker.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(requestData)
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch DigiLocker data.');
+                }
+
+                let data = await response.json();
+
+                let outputDiv = document.getElementById("output");
+                outputDiv.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+
             } catch (error) {
                 alert("Error: " + error.message);
             }
