@@ -96,9 +96,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <p>Chandrika</p>
                 </div>
                 <div class="tab-pane" role="tabpanel" id="tab-4">
-                    <div class="container mt-3">
+                    <div class="container-fluid mt-3">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-2">
                                 <!-- <button class="btn btn-primary" type="button">Click to display
                                     Transaction ID</button> -->
 
@@ -106,7 +106,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <button type="button" class="btn btn-primary" onclick="showTransactionId()">Click to display the transaction ID</button>
                                 </form>
                             </div>
-                            <div class="col-6">
+                            <div class="col-5">
+                                <div class="card mb-5">
+                                    <div class="card-body p-sm-12">
+                                        <form>
+                                            <h5>Enter Mobile Number</h5>
+                                            <div class="mb-3">
+                                                <input class="form-control" type="number" id="mobile" placeholder="Enter Mobile Number">
+                                            </div>
+
+                                            <h5>Enter Generated Digilocker Link</h5>
+                                            <div class="mb-3">
+                                                <input class="form-control" type="text" id="link" placeholder="Enter Generated Digilocker Link">
+                                            </div>
+                                            <button class="btn btn-primary" onclick="shareOnWhatsApp()">Share In What's Up</button>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-5">
                                 <div class="card mb-5">
                                     <div class="card-body p-sm-12">
                                         <h5 class="text-center mb-4 text-col">Enter Transaction ID</h5>
@@ -159,6 +178,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
             } catch (error) {
                 alert("Error: " + error.message);
+            }
+        }
+
+        function shareOnWhatsApp() {
+            let mobile = document.getElementById("mobile").value.trim();
+            let link = document.getElementById("link").value.trim();
+
+            if (mobile && link) {
+                let message = `Here is your Digilocker link: ${link}`;
+                let whatsappURL = `https://wa.me/${mobile}?text=${encodeURIComponent(message)}`;
+
+                // Redirect to WhatsApp with the message
+                window.open(whatsappURL, '_blank');
+            } else {
+                alert("Please enter both mobile number and link!");
             }
         }
     </script>
