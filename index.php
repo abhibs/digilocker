@@ -183,6 +183,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if (data && data.ts_trans_id && data.data && data.data.url) {
                     alert("Your Transaction ID: " + data.ts_trans_id);
                     alert("DigiLocker link generated successfully.");
+                    document.getElementById("transId").value = data.ts_trans_id;
                     window.open(data.data.url, '_blank');
                 } else {
                     alert("Failed to retrieve transaction details. Check API response.");
